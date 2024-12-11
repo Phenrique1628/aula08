@@ -16,6 +16,7 @@ export default function Home() {
     }
     buscarUsuario();
   }, [usuarios])
+  
   const removerPessoa = async (id) => {
    try{
     await fetch('http://localhost:3000/usuarios/' +id ,{
