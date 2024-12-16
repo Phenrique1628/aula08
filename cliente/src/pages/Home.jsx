@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { jsPDF } from "jspdf";
 import "jspdf-autoTable";
 import { Button } from '@mui/material'
+import { Link } from "react-router-dom";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 export default function Home() {
 
@@ -56,7 +58,12 @@ export default function Home() {
         <tr key={usuario.id}>
           <td>{usuario.nome}</td>
           <td>{usuario.email}</td>
-          <td><button onClick={()=> removerPessoa(usuario.id)}>X</button></td>
+          <td><button onClick={()=> removerPessoa(usuario.id)}>
+           <DeleteIcon/>
+            </button></td>
+          <Link to={'/alterar/' + usuario.id}>
+          <button>Alterar</button>
+          </Link>
         </tr>
       )}
     </table>
